@@ -1,0 +1,119 @@
+<form class="form" (ngSubmit)="onSubmit()" autocomplete="off" [formGroup]="form">
+  <div class="form-field">
+    <label for="name">First Name</label>
+    <input
+      type="text"
+      id="name"
+      placeholder="Enter your name"
+      formControlName="firstname"
+    >
+  </div>
+  <app-my-awesome-input formControlName="myAwesomeControl"></app-my-awesome-input>
+  <div class="form-field">
+    <label for="last-name">Last Name</label>
+    <input
+      type="text"
+      id="last-name"
+      placeholder="Enter your last name"
+      formControlName="lastname"
+    >
+  </div>
+
+  <div class="form-field">
+    <label for="nickname">Nickname</label>
+    <input
+      type="text"
+      id="nickname"
+      placeholder="Come up with a nickname"
+      formControlName="nickname"
+    >
+  </div>
+  <div class="form-field">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      placeholder="Provide your email"
+      formControlName="email"
+    >
+  </div>
+  <div class="form-field" *ngIf="form.get('anotherEmail')">
+    <label for="email">Another Email</label>
+    <input
+      type="email"
+      id="anotherEmail"
+      placeholder="Provide your another email"
+      formControlName="anotherEmail"
+    >
+  </div>
+  <div class="form-field-inline-group">
+    <div class="form-field form-field--small">
+      <label for="year-of-birth">Year of birth</label>
+      <select id="year-of-birth" formControlName="yearOfBirth">
+        <option *ngFor="let year of years" [value]="year">{{year}}</option>
+      </select>
+    </div>
+    <div class="form-field form-field--small">
+      <label for="passport">Passport Number</label>
+      <input
+        type="text"
+        id="passport"
+        placeholder="Provide Passport Data"
+        formControlName="passport"
+      >
+    </div>
+  </div>
+  <fieldset formGroupName="address">
+    <legend>Address</legend>
+    <div class="form-field">
+      <label for="full-address">Full Adress</label>
+      <input
+        type="text"
+        id="full-address"
+        placeholder="Street name and house number"
+        formControlName="fullAddress"
+      >
+    </div>
+    <div class="form-field">
+      <label for="city">City</label>
+      <input
+        type="text"
+        id="city"
+        placeholder="City"
+        formControlName="city"
+      >
+    </div>
+    <div class="form-field">
+      <label for="post-code">Post Code</label>
+      <input
+        type="number"
+        id="post-code"
+        placeholder="Post code"
+        formControlName="postCode"
+      >
+    </div>
+  </fieldset>
+  <fieldset formGroupName="password">
+    <legend>User Password</legend>
+    <div class="form-field">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter user's password"
+        formControlName="password"
+      >
+    </div>
+    <div class="form-field">
+      <label for="confirm-password">Confirm password</label>
+      <input
+        type="password"
+        id="confirm-password"
+        placeholder="Confirm the password"
+        formControlName="confirmPassword"
+      >
+    </div>
+  </fieldset>
+  <button>Save</button>
+  <button type="reset" class="reset-button">Reset</button>
+</form>
